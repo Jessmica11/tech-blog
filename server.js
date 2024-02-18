@@ -4,7 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const dotenv = require('dotenv');
-const { sequelize } = require('./models');
+const { sequelize } = require('./routes');
 
 // Load environment variables from .env file
 dotenv.config();
