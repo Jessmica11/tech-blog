@@ -1,0 +1,22 @@
+{{#> main pageTitle="Home"}}
+<h1>Welcome to the Tech Blog</h1>
+
+{{#if logged_in}}
+<a href="/dashboard">Dashboard</a>
+<a href="/logout">Logout</a>
+{{else}}
+<a href="/login">Login</a>
+{{/if}}
+
+<!-- Display existing blog posts with title, first sentence, and user information -->
+{{#each blogPosts}}
+<div>
+    <h2><a href="/posts/{{id}}/comment">{{title}}</a></h2>
+    <p>{{{firstSentence content}}}</p>
+    <p>Posted by: {{User.username}} on {{createdAt}}</p>
+    <!-- Add link to view individual post -->
+    <a href="/posts/{{id}}">View Post</a>
+</div>
+{{/each}}
+
+{{/main}}

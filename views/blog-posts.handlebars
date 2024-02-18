@@ -1,0 +1,29 @@
+{{#> main pageTitle="View Post"}}
+<h1>{{title}}</h1>
+<p>Created by: {{username}}</p>
+<p>Date: {{createdAt}}</p>
+<p>{{contents}}</p>
+
+{{#if logged_in}}
+<!-- Comment form -->
+<form action="/posts/{{id}}/comment" method="post">
+    <label for="comment">Leave a Comment:</label>
+    <input type="text" id="comment" name="comment" required>
+
+    <input type="submit" value="Submit Comment">
+</form>
+
+{{#each comments}}
+<div>
+    <p>Comment by: {{username}}</p>
+    <p>{{text}}</p>
+    <p>Date: {{createdAt}}</p>
+</div>
+{{/each}}
+{{else}}
+<p>You need to log in to leave a comment. <a href="/login">Login</a></p>
+{{/if}}
+
+<a href="/">Back to Home</a>
+
+{{/main}}

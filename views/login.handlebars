@@ -1,0 +1,21 @@
+{{#> main pageTitle="Login"}}
+<h1>Login</h1>
+
+{{#if logged_in}}
+<p>You are already logged in. <a href="/dashboard">Go to Dashboard</a></p>
+{{else}}
+<!-- Login form -->
+<form action="/login" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <input type="submit" value="Login">
+</form>
+
+<p>Don't have an account? <a href="/signup">Sign Up</a></p>
+{{/if}}
+
+{{/main}}
